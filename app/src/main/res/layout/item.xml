@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mycardView"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_margin="5dp"
+    android:focusable="auto"
+    android:orientation="horizontal"
+    app:cardBackgroundColor="#c1c1c0"
+    app:cardCornerRadius="8dp"
+    app:cardUseCompatPadding="true">
+
+
+    <TextView
+        android:id="@+id/file_name_text_view"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:hint="File Name"
+        android:textAlignment="center"
+        android:textColor="#353637"
+        android:textColorHint="#0C0B0B"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="10dp"
+        android:clickable="true"
+        android:scaleType="center"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="10dp"
+        app:fabCustomSize="33dp"
+        app:fabSize="mini"
+        app:maxImageSize="20dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/download_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+
+        android:layout_marginStart="152dp"
+        android:layout_marginLeft="152dp"
+        android:clickable="true"
+        android:scaleType="center"
+        android:src="@drawable/ic_baseline_download_24"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="10dp"
+        app:fabCustomSize="33dp"
+        app:fabSize="mini"
+        app:maxImageSize="24dp" />
+
+</androidx.cardview.widget.CardView>

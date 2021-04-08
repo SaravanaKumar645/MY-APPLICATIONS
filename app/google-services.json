@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "706326124069",
+    "project_id": "personal-locker-splash-screen",
+    "storage_bucket": "personal-locker-splash-screen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706326124069:android:bff685d4ff1d1a70b591cc",
+        "android_client_info": {
+          "package_name": "com.example.personallockersplashscreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706326124069-1ge04rpt96shn2e6ql0b2922bhp57ko0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI1ydRjD0cUUC1kIc79fZQRQ2HXPPq6vQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706326124069-1ge04rpt96shn2e6ql0b2922bhp57ko0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

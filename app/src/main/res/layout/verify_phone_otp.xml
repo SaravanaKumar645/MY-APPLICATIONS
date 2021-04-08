@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VerifyPhoneOTP">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/pg_bar_backgrorund_2"
+        android:elevation="20dp"
+        android:gravity="center_horizontal"
+        android:padding="18dp"
+        android:id="@+id/relativeLayout_pgbar_otp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.954">
+
+        <ProgressBar
+            android:id="@+id/progressBar_verifyOTP"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:foregroundGravity="center"
+            android:indeterminateTint="#0099ff"
+            android:visibility="invisible"
+
+            />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/otp_enter_area"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="#0099FF"
+        android:drawableStart="@drawable/ic_otp_icon"
+        android:drawableLeft="@drawable/ic_otp_icon"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Enter  OTP"
+        android:inputType="number"
+        android:padding="8dp"
+        android:textColor="#090909"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
+
+    <Button
+        android:id="@+id/verify_otp_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/btn_bg1"
+        android:gravity="center"
+        android:text="Verify"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/otp_enter_area"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintLeft_toLeftOf="@+id/otp_enter_area"
+        app:layout_constraintRight_toRightOf="@+id/otp_enter_area"
+        app:layout_constraintStart_toStartOf="@+id/otp_enter_area"
+        app:layout_constraintTop_toBottomOf="@+id/otp_enter_area" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginRight="1dp"
+        android:gravity="center"
+        android:text="Verify Mobile Number !"
+        android:textColor="#100F0F"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="59dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pics_lock" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
