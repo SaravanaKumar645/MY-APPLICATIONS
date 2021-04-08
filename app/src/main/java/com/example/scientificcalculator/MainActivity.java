@@ -52,6 +52,7 @@ import com.google.gson.Gson;
 import org.mariuszgromada.math.mxparser.Expression;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -66,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     SensorEventListener sensorEventListener;
     Toolbar toolbar;
-     static List<String> listExp = new ArrayList<>();
-     static List<String> listRes = new ArrayList<>();
+     public static List<String> listExp = new ArrayList<>();
+     public static List<String> listRes = new ArrayList<>();
     private TextView prevCalculation;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -254,8 +255,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         display.setText(result);
         display.setSelection(result.length());
-        listExp.add(expcopy);
-        listRes.add(result);
+        listExp.addAll(Collections.singleton(expcopy));
+        listRes.addAll(Collections.singleton(result));
         Log.e("SEEEEE", "onCreate: " + listExp);
         Log.e("SEEEEE", "onCreate: " + listRes);
         //Modelclass modelclass=new Modelclass(expcopy,result);

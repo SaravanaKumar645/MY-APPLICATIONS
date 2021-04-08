@@ -1,8 +1,10 @@
 package com.example.scientificcalculator;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,6 +14,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,11 +51,12 @@ public class History extends AppCompatActivity {
     String s1,s2,s3;
     ClipboardManager clipboardManager;
     ClipData clipData;
+    SharedPreferences sharedPreferences1;
     SimpleAdapter simpleAdapter;
     ListView listViewHistory;
     public  ArrayList<Map<String, String>> list2 = new ArrayList<>();
-    public static LinkedHashSet<Map<String, String>> list1 = new LinkedHashSet<>();
-     List<String> listExpression = new ArrayList<>();
+    public  LinkedHashSet<Map<String, String>> list1 = new LinkedHashSet<>();
+    List<String> listExpression = new ArrayList<>();
     List<String> listResult = new ArrayList<>();
 
     String expression, result, key1, key2;
@@ -63,6 +67,14 @@ public class History extends AppCompatActivity {
         this.expression=exp;
         this.result=res;
     }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.history_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -132,8 +144,11 @@ public class History extends AppCompatActivity {
                 return true;
             case R.id.delete_history:
                // hashMap.clear();
+                 list2.remove(pos);
+                 simpleAdapter.notifyDataSetChanged();
+                 simpleAdapter.notifyDataSetInvalidated();
                 View parent3 = findViewById(android.R.id.content);
-                Snackbar snackbar3 = Snackbar.make(parent3, Html.fromHtml("Not yet Implemented"), Snackbar.LENGTH_LONG);
+                Snackbar snackbar3 = Snackbar.make(parent3, Html.fromHtml("History Removed"), Snackbar.LENGTH_LONG);
                 View view3 = snackbar3.getView();
                 TextView tv3 = (TextView) view3.findViewById(com.google.android.material.R.id.snackbar_text);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -166,10 +181,11 @@ public class History extends AppCompatActivity {
         snackbar.show();
 
         clipboardManager=(ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        SharedPreferences sharedPreferences1 = getSharedPreferences("key", MODE_PRIVATE);
+         sharedPreferences1 = getSharedPreferences("key", MODE_PRIVATE);
         Gson gson = new Gson();
         expression = sharedPreferences1.getString("EXP", "");
         result = sharedPreferences1.getString("RES", "");
+
 
         if (expression.isEmpty()) {
             listExpression = new ArrayList<>();
@@ -232,6 +248,33 @@ public class History extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 return true;
+            case R.id.delete_all:
+                AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+                dialog.setTitle("Confirm Delete");
+                dialog.setCancelable(false);
+                dialog.setMessage("Are you sure want to delete all history ?\nThis can't be undone.");
+                dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                             SharedPreferences.Editor editor= sharedPreferences1.edit();
+                             editor.clear();
+                             editor.apply();
+                             listExpression.clear();
+                             listResult.clear();
+                             list2.clear();
+                             simpleAdapter.notifyDataSetChanged();
+                             simpleAdapter.notifyDataSetInvalidated();
+
+                    }
+                });
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog=dialog.create();
+                alertDialog.show();
         }
         return super.onOptionsItemSelected(item);
     }
