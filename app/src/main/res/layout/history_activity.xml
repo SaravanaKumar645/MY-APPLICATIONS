@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".History">
 <include layout="@layout/toolbar"
+
     android:layout_width="match_parent"
     android:title="History"
     android:layout_height="wrap_content"/>
