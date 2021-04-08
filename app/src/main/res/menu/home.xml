@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item android:title=""
+            android:id="@+id/null_item"
+            android:visible="false"/>
+        <item
+            android:id="@+id/normal_calc"
+            android:icon="@drawable/ic_baseline_calculate_24"
+            android:title="Standard Calculator"
+            />
+        <item
+            android:id="@+id/scientific_calc"
+            android:icon="@drawable/ic_baseline_calculate_24"
+            android:title="Scientific Calculator" />
+        <item
+            android:id="@+id/history"
+            android:icon="@drawable/ic_sharp_history_24"
+            android:title="History" />
+
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/rate_us"
+                    android:icon="@drawable/ic_baseline_star_rate_24"
+                    android:title="Rate Us" />
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_baseline_info_24"
+                    android:title="About" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

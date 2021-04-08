@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Context_menu">
+    <item>Copy Expression</item>
+        <item>Copy Result</item>
+        <item>Copy All</item>
+        <item>Remove from History</item>
+    </string-array>
+</resources>

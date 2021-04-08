@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/copy_Exp"
+    android:title="Copy Expression"
+    android:icon="@drawable/ic_baseline_content_copy_24"
+    />
+    <item
+        android:id="@+id/copy_Res"
+        android:title="Copy Result"
+        android:icon="@drawable/ic_baseline_content_copy_24"/>
+    <item
+        android:id="@+id/copy_All"
+        android:title="Copy All"
+        android:icon="@drawable/ic_baseline_copy_all_24"/>
+    <item
+        android:id="@+id/delete_history"
+        android:icon="@drawable/ic_round_delete_forever_24"
+        android:title="Remove from History"/>
+</menu>

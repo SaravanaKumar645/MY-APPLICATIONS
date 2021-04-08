@@ -1,0 +1,56 @@
+<resources>
+
+    <string name="open_drawer">Open Navigation Drawer</string>
+    <string name="close_drawer">Close Navigation Drawer</string>
+    <string name="app_name">Scientific Calculator</string>
+    <string name="hint">Enter a value</string>
+    <string name="modulo">\tmod\t </string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+    <string name="clear">AC</string>
+    <string name="parenthesis_open">(</string>
+    <string name="parenthesis_close">)</string>
+    <string name="decimal">.</string>
+    <string name="addition">+</string>
+    <string name="subtraction">-</string>
+    <string name="division">÷</string>
+    <string name="multiplication">×</string>
+    <string name="equals">=</string>
+    <string name="delete">DEL</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="Sin">sin</string>
+    <string name="Cos">cos</string>
+    <string name="Tan">tan</string>
+    <string name="ArcSin">sin<sup><small>-1</small></sup></string>
+    <string name="ArcCos">cos<sup><small>-1</small></sup></string>
+    <string name="ArcTan">tan<sup><small>-1</small></sup></string>
+    <string name="natural_Log">ln</string>
+    <string name="Log">log</string>
+    <string name="SquareRoot">√</string>
+    <string name="AbsoluteValue">|x|</string>
+    <string name="PIT">π</string>
+    <string name="e">e</string>
+    <string name="xSquare">x<sup><small>2</small></sup></string>
+    <string name="x_Power_Y">x<sup><small>y</small></sup></string>
+    <string name="isPrime">prime</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+</resources>

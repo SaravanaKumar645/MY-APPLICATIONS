@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="bottom"
+    android:background="#F4D011"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="start"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        />
+
+
+
+</LinearLayout>
