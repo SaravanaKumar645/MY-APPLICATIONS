@@ -209,7 +209,8 @@ public class UploadArea extends AppCompatActivity {
             String name;
 
             Cursor cursor = getContentResolver().query(fileUri,null,null,null,null);
-            if(cursor == null) name=fileUri.getPath();
+            if(cursor == null)
+            {name=fileUri.getPath();}
             else{
                 cursor.moveToFirst();
                 int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
@@ -217,7 +218,7 @@ public class UploadArea extends AppCompatActivity {
                 cursor.close();
             }
 
-            fName = name.substring(0,name.lastIndexOf("."))+fExtension;
+            fName = name.substring(name.lastIndexOf(".")+1)+fExtension;
             //String extension = name.substring(name.lastIndexOf(".")+1);
 
             fNamedevice= (data.getData().getLastPathSegment());
