@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,25 +19,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
-import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class UploadArea extends AppCompatActivity {
@@ -205,6 +196,8 @@ public class UploadArea extends AppCompatActivity {
         if (requestCode==100&&resultCode==RESULT_OK&&data!=null)
         {
             fileUri=data.getData();
+
+
             fExtension= getFileExtension(fileUri);
             String name;
 
@@ -213,12 +206,14 @@ public class UploadArea extends AppCompatActivity {
             {name=fileUri.getPath();}
             else{
                 cursor.moveToFirst();
-                int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
-                name = cursor.getString(idx);
+                int id1 = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
+                name = cursor.getString(id1);
                 cursor.close();
             }
 
-            fName = name.substring(name.lastIndexOf(".")+1)+fExtension;
+            fName = name.substring(0,name.lastIndexOf("."))+fExtension;
+           // fName = name.substring(name.lastIndexOf('/')+1)+fExtension;
+            //File file= new File(new File(String.valueOf(fileUri)).getName());
             //String extension = name.substring(name.lastIndexOf(".")+1);
 
             fNamedevice= (data.getData().getLastPathSegment());
@@ -227,6 +222,7 @@ public class UploadArea extends AppCompatActivity {
             mNotify.setVisibility(View.VISIBLE);
             //mNotify.setEnabled(true);
             mNotify.setText(fName);
+            //Log.e(TAG, "onActivityResult: File Name     :   "+fileName123 );
         }else{
             Toast.makeText(UploadArea.this, "Please Select a File !", Toast.LENGTH_SHORT).show();
         }
