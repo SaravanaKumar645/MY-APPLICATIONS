@@ -2,6 +2,7 @@ package com.example.personallockersplashscreen;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -9,7 +10,9 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.FileUtils;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
@@ -28,6 +31,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -76,6 +80,7 @@ public class UploadArea extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (fileUri!=null){
+                    File file = new File(fileUri.getPath());
                     uploadFile(fileUri);
                 }else{
                     Toast.makeText(UploadArea.this, "Select a File", Toast.LENGTH_SHORT).show();
@@ -87,16 +92,15 @@ public class UploadArea extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case android.R.id.home:
-                this.finish();
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                //startActivity(new Intent(getApplicationContext(),Home.class));
-                //finish();
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            //startActivity(new Intent(getApplicationContext(),Home.class));
+            //finish();
 
-                return true;
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -133,7 +137,9 @@ public class UploadArea extends AppCompatActivity {
                                          uploadedFile.put("URL",downloadUrl.toString());
                                          uploadedFile.put("FileName", fName);
                                          uploadedFile.put("Extension",fExtension);
-                                         uploadedFile.put("Date", getTodaysDate());
+                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                             uploadedFile.put("Date", getTodaysDate());
+                                         }
                                          uploadedFile.put("UserId", userId);
                                          firestoreCloud.collection("UploadedFiles").document(docId).set(uploadedFile)
                                                  .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -262,9 +268,13 @@ public class UploadArea extends AppCompatActivity {
                 });
     }*/
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private String getTodaysDate() {
         Date currentDate = Calendar.getInstance().getTime();
-        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("MM/dd/YYYY");
+        java.text.SimpleDateFormat simpleDateFormat = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            simpleDateFormat = new java.text.SimpleDateFormat("MM/dd/YYYY");
+        }
         return simpleDateFormat.format(currentDate);
     }
 

@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_user);
-relativeLayout=findViewById(R.id.relativeLayout_pgbar);
+        relativeLayout=findViewById(R.id.relativeLayout_pgbar);
         mEmail=findViewById(R.id.email);
         mShowhidePassword=findViewById(R.id.show_pass_btn);
         mPassword1=findViewById(R.id.password);
@@ -98,7 +98,6 @@ relativeLayout=findViewById(R.id.relativeLayout_pgbar);
                         mp.release();
                     }
                 }*/
-
 
 
                 String email=mEmail.getText().toString().trim();

@@ -71,7 +71,7 @@ PasscodeView mPasscode;
                             passCode = documentSnapshot.getString("Passcode");
                             Log.e("SEEEEE THISSSS", "CODE: " + passCode);
 
-                            mPasscode.setPasscodeLength(4).setLocalPasscode(passCode).setPasscodeType(PasscodeView.PasscodeViewType.TYPE_CHECK_PASSCODE).setListener(new PasscodeView.PasscodeViewListener() {
+                            mPasscode.setPasscodeLength(4).setPasscodeType(PasscodeView.PasscodeViewType.TYPE_CHECK_PASSCODE).setLocalPasscode(passCode).setListener(new PasscodeView.PasscodeViewListener() {
                                 @Override
                                 public void onFail() {
 
